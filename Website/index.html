@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🎉2025 MUSA Appreciation Night</title>
+  <meta name="description" content="Official landing page for the 2025 MUSA Appreciation Night — countdown, key details, and quick links." />
+  <meta name="theme-color" content="#0A2540" />
+
+  <!-- Typography (per brand doc): Cardo for body; Script for display headings. -->
+  <!-- Cardo (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Bethany Elingston (brand script). If you have the official font file, host it and replace the src URL below. -->
+  <style>
+    @font-face {
+      font-family: 'BethanyElingston';
+      src: url('/fonts/BethanyElingston.woff2') format('woff2'); /* TODO: replace with your hosted file */
+      font-display: swap;
+    }
+    :root{
+      /* Palette inspired by the brand banners (deep blue / white), with soft gold accents */
+      --brand-deep: #0A2540;  /* deep navy */
+      --brand-ink:  #0E2A4D;  /* ink blue */
+      --brand-sky:  #DDEAF7;  /* pale blue wash */
+      --brand-gold: #C9A86A;  /* soft metallic gold */
+      --brand-white:#FFFFFF;
+    }
+    .font-script{font-family: 'BethanyElingston', 'Great Vibes', 'Beth Ellen', cursive;}
+    .font-cardo{font-family: 'Cardo', serif;}
+
+    /* Subtle animated grain for premium feel */
+    .grain:before{
+      content:""; position:absolute; inset:0; pointer-events:none; opacity:.06; mix-blend-mode: overlay;
+      background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22 viewBox=%220 0 40 40%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3CfeColorMatrix type=%22saturate%22 values=%220%22/%3E%3C/ filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E');
+      animation: grainMove 12s linear infinite;
+    }
+    @keyframes grainMove{from{transform:translate(0,0)}to{transform:translate(-40px,-40px)}}
+
+    /* Glow helpers */
+    .glow-gold{ box-shadow: 0 0 0 1px rgba(201,168,106,.25), 0 10px 50px -10px rgba(201,168,106,.35), inset 0 0 0 1px rgba(201,168,106,.15); }
+    .glow-blue{ box-shadow: 0 0 0 1px rgba(13,58,110,.25), 0 10px 50px -10px rgba(13,58,110,.35), inset 0 0 0 1px rgba(13,58,110,.15); }
+
+    /* Countdown digits */
+    .digit{ min-width: 4.5rem; }
+    @media (min-width: 640px){ .digit{ min-width: 6.25rem; } }
+
+    /* Fancy divider */
+    .divider{ position:relative; height:1px; background:linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(201,168,106,.6) 50%, rgba(255,255,255,0) 100%); }
+    .divider:after{ content:""; position:absolute; left:50%; top:-6px; transform:translateX(-50%); width:12px; height:12px; border-radius:999px; background:var(--brand-gold); box-shadow:0 0 0 6px rgba(201,168,106,.15); }
+
+    /* Simple fade/slide */
+    .reveal{ opacity:0; transform:translateY(8px); transition: opacity .8s ease, transform .8s ease; }
+    .reveal.show{ opacity:1; transform:none; }
+  </style>
+
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { deep: '#0A2540', ink: '#0E2A4D', sky: '#DDEAF7', gold: '#C9A86A', white: '#FFFFFF' }
+          },
+          fontFamily: {
+            cardo: ['Cardo','serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+  @keyframes splashFadeIn { from { opacity: 0 } to { opacity: 1 } }
+  @keyframes splashFadeOut { from { opacity: 1 } to { opacity: 0 } }
+  @keyframes logoPop {
+    from { transform: rotate(-50deg) scale(0.5) }
+    to   { transform: rotate(0deg) scale(1.25) }
+  }
+  .splash-in  { animation: splashFadeIn 200ms ease-out forwards; }
+  .splash-out { animation: splashFadeOut 500ms ease-in  forwards; }
+  .logo-pop   { animation: logoPop 3000ms ease-out forwards; }
+  </style>
+
+</head>
+<body class="font-cardo bg-[radial-gradient(1200px_600px_at_70%_-10%,rgba(201,168,106,.25),transparent),linear-gradient(180deg,var(--brand-deep),#071A2F)] text-brand-white selection:bg-brand-gold selection:text-brand-deep">
+  <!-- Splash (index only) -->
+  <div id="splash"
+      class="fixed inset-0 z-[9999] flex items-center justify-center
+              bg-[radial-gradient(1200px_600px_at_70%_-10%,rgba(201,168,106,.25),transparent),linear-gradient(180deg,#0A2540,#071A2F)]
+              opacity-0">
+    <img id="splash-logo" src="Logo1.png" alt="MUSA Appreciation Night"
+        class="w-[500px] drop-shadow" />
+  </div>
+
+
+  
+  <!-- Background flourishes -->
+  <div aria-hidden="true" class="fixed inset-0 grain"></div>
+  <div aria-hidden="true" class="pointer-events-none fixed inset-0 [mask-image:radial-gradient(50%_50%_at_50%_30%,black,transparent)]" style="background:radial-gradient(800px 400px at 30% 10%, rgba(201,168,106,.18), transparent), radial-gradient(900px 550px at 70% 0%, rgba(204,227,255,.10), transparent)"></div>
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/5">
+    <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
+
+      <a href="index.html" class="group inline-flex items-center">
+        <span class="sr-only">MUSA Appreciation Night 2025</span>
+        <img src="Logo1.png"
+            alt="MUSA Appreciation Night 2025"
+            class="w-[120px] -rotate-[0deg] drop-shadow hover:scale-105 transition-transform duration-200" />
+      </a>
+
+
+      <nav class="hidden sm:flex items-center gap-6 text-sm">
+        <a href="#countdown" class="hover:text-brand-gold">Countdown</a>
+        <a href="#details" class="hover:text-brand-gold">Details</a>
+        <a href="location.html" 
+        class="hover:text-brand-gold">Location</a>
+        <a href="itinerary.html" class="hover:text-brand-gold">Itinerary</a>
+        <a href="lepak.html" class="hover:text-brand-gold">MUSA Lepak</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdyWNTsTu0608fFaZIrIHFfwQC0RO5nbXHgYHUsU0xRLp27Iw/viewform?usp=publish-editor" class="rounded-full px-4 py-2 glow-gold bg-white/5 hover:bg-white/10 transition">RSVP</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative">
+    <div class="mx-auto max-w-7xl px-4 pt-16 pb-10 sm:pt-20 sm:pb-16 lg:pt-24 lg:pb-20">
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+          <!-- Left: Text and Buttons -->
+          <div class="reveal flex flex-col justify-center">
+            <p class="text-brand-gold/90 tracking-[0.4em] uppercase text-xs sm:text-sm">Welcome to the</p>
+            <h1 class="mt-3 text-4xl sm:text-5xl lg:text-6xl leading-tight">
+            <span class="font-script text-brand-gold text-[2.75rem] sm:text-[3.25rem] lg:text-[3.75rem] block font-[BethanyElingston]">2025 MUSA</span>
+            <span class="font-semibold">Appreciation Night</span>
+            </h1>
+            <p class="mt-5 max-w-prose text-brand-sky/90">An evening of gratitude, laughter, and celebration awaits, a chance to honour the spirit and dedication that made this year shine. Come dressed for a night to remember, filled with music, moments, and joy. RSVP below and be part of the celebration!</p>
+
+
+            <div class="mt-8 mb-10 flex flex-wrap items-center gap-3"> <!-- Added margin-bottom for spacing -->
+            <a href="#countdown" class="rounded-full px-5 py-2.5 glow-gold bg-white/5 hover:bg-white/10 transition">See the Countdown</a>
+            <a href="itinerary.html" class="rounded-full px-5 py-2.5 ring-1 ring-white/30 hover:bg-white/10 transition">View Itinerary</a>
+            </div>
+            </div>
+
+
+            <!-- Right: Logo closer to text and larger -->
+            <div class="flex justify-center lg:justify-end items-center lg:absolute lg:right-[15%] lg:top-[5%]">
+            <img src="Logo2.png" alt="MUSA Appreciation Night Logo" class="w-[450px] transform -rotate-[15deg] transition-transform duration-300 ease-in-out hover:scale-110 hover:drop-shadow-[0_10px_15px_rgba(255,255,255,0.25)]" />
+            </div>
+          </div>
+
+        <!-- Hero card -->
+        <div class="reveal">
+          <div class="relative rounded-3xl p-1 bg-gradient-to-b from-brand-gold/50 to-transparent">
+            <div class="rounded-2xl bg-white/5 ring-1 ring-white/30 p-6 sm:p-8 backdrop-blur glow-blue">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-xs tracking-[0.28em] uppercase text-brand-sky/90">Event</p>
+                  <p class="text-xl">Appreciation Night 2025</p>
+                </div>
+                <div class="text-right">
+                  <p class="text-xs tracking-[0.28em] uppercase text-brand-sky/90">Theme</p>
+                  <p class="text-xl">Celebrate & Shine ✨</p>
+                </div>
+              </div>
+              <div class="mt-6 divider" aria-hidden="true"></div>
+
+              <dl id="details" class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
+                <div class="rounded-xl bg-white/5 p-4 ring-1 ring-white/20">
+                  <dt class="text-brand-sky/90">Date</dt>
+                  <dd id="dateText" class="mt-1 text-base">Oct 27, 2025</dd>
+                </div>
+                <div class="rounded-xl bg-white/5 p-4 ring-1 ring-white/20">
+                  <dt class="text-brand-sky/90">Time</dt>
+                  <dd id="timeText" class="mt-1 text-base">5:00 PM – 12:00 AM (MYT)</dd>
+                </div>
+                <div class="rounded-xl bg-white/5 p-4 ring-1 ring-white/20">
+                  <dt class="text-brand-sky/90">Venue</dt>
+                  <dd id="venueText" class="mt-1 text-base">W. Factory Event Space</dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- COUNTDOWN -->
+  <section id="countdown" class="relative">
+    <div class="mx-auto max-w-7xl px-4 pb-20">
+      <div class="rounded-3xl bg-white/5 ring-1 ring-white/20 overflow-hidden">
+        <div class="px-6 sm:px-10 py-10 sm:py-14 lg:py-16 text-center">
+          <p class="text-brand-gold/90 tracking-[0.4em] uppercase text-xs sm:text-sm">Live Countdown</p>
+          <h2 class="mt-2 text-3xl sm:text-4xl">Days to the 2025 MUSA Appreciation Night</h2>
+
+          <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 place-items-center">
+            <div class="digit rounded-2xl bg-white/10 ring-1 ring-white/20 p-5 sm:p-6 glow-blue">
+              <div id="d-days" class="text-4xl sm:text-5xl font-semibold tabular-nums">--</div>
+              <div class="mt-2 text-xs tracking-widest uppercase opacity-80">Days</div>
+            </div>
+            <div class="digit rounded-2xl bg-white/10 ring-1 ring-white/20 p-5 sm:p-6 glow-blue">
+              <div id="d-hours" class="text-4xl sm:text-5xl font-semibold tabular-nums">--</div>
+              <div class="mt-2 text-xs tracking-widest uppercase opacity-80">Hours</div>
+            </div>
+            <div class="digit rounded-2xl bg-white/10 ring-1 ring-white/20 p-5 sm:p-6 glow-blue">
+              <div id="d-mins" class="text-4xl sm:text-5xl font-semibold tabular-nums">--</div>
+              <div class="mt-2 text-xs tracking-widest uppercase opacity-80">Minutes</div>
+            </div>
+            <div class="digit rounded-2xl bg-white/10 ring-1 ring-white/20 p-5 sm:p-6 glow-blue">
+              <div id="d-secs" class="text-4xl sm:text-5xl font-semibold tabular-nums">--</div>
+              <div class="mt-2 text-xs tracking-widest uppercase opacity-80">Seconds</div>
+            </div>
+          </div>
+
+          <p id="countdownLabel" class="mt-6 text-brand-sky/90">Counting down in Asia/Kuala_Lumpur (MYT).</p>
+        </div>
+
+        <!-- Callouts / Quick Links -->
+          <div class="grid sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
+          <a href="location.html" class="group p-6 sm:p-8 hover:bg-white/5 transition block">
+            <p class="uppercase tracking-widest text-xs text-brand-sky/80">Track</p>
+            <p class="mt-2 text-lg">Location & Arrival</p>
+            <p class="mt-1 text-brand-sky/90">Getting here is easy, we’ve got you covered with maps and parking tips!”</p>
+            <span class="mt-3 inline-block text-brand-gold group-hover:translate-x-1 transition">Go →</span>
+          </a>
+
+          <a href="itinerary.html" class="group p-6 sm:p-8 hover:bg-white/5 transition block">
+            <p class="uppercase tracking-widest text-xs text-brand-sky/80">Plan</p>
+            <p class="mt-2 text-lg">Itinerary</p>
+            <p class="mt-1 text-brand-sky/90">Stage times, awards & performances.</p>
+            <span class="mt-3 inline-block text-brand-gold group-hover:translate-x-1 transition">Go →</span>
+          </a>
+          <a href="lepak.html" class="group p-6 sm:p-8 hover:bg-white/5 transition block">
+            <p class="uppercase tracking-widest text-xs text-brand-sky/80">Play</p>
+            <p class="mt-2 text-lg">MUSA Lepak Points</p>
+            <p class="mt-1 text-brand-sky/90">Live mini‑game scoreboard.</p>
+            <span class="mt-3 inline-block text-brand-gold group-hover:translate-x-1 transition">Go →</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- RSVP / Footer -->
+  <section id="rsvp" class="relative">
+    <div class="mx-auto max-w-7xl px-4 pb-24">
+      <div class="rounded-3xl bg-white/5 ring-1 ring-white/20 p-8 sm:p-12 text-center">
+        <p class="text-brand-gold/90 tracking-[0.4em] uppercase text-xs sm:text-sm">RSVP</p>
+        <h3 class="mt-2 text-2xl sm:text-3xl">You have been invited to celebrate with us</h3>
+        <div class="mt-6 flex flex-wrap justify-center gap-3">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdyWNTsTu0608fFaZIrIHFfwQC0RO5nbXHgYHUsU0xRLp27Iw/viewform?usp=publish-editor" class="rounded-full px-5 py-2.5 glow-gold bg-white/5 hover:bg-white/10 transition">R S V P</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CONTACT CARD -->
+<section id="contact" class="relative">
+  <div class="mx-auto max-w-7xl px-4 pb-12">
+    <div class="rounded-3xl bg-white/5 ring-1 ring-white/20 p-6 sm:p-10 glow-blue">
+      <p class="text-brand-gold/90 tracking-[0.4em] uppercase text-xs sm:text-sm">Contact</p>
+      <div class="mt-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div class="max-w-prose">
+          <h3 class="text-2xl sm:text-3xl">Need help or have a question?</h3>
+          <p class="mt-2 text-brand-sky/90">
+            For any event-related queries, please HESITATE to email us at
+            <a href="mailto:musa.president@monash.edu?cc=musaprezzi@gmail.com" class="underline underline-offset-4 hover:text-brand-gold">
+              musa.president@monash.edu
+            </a>.
+          </p>
+        </div>
+
+        <a href="mailto:musa.president@monash.edu?cc=musaprezzi@gmail.com"
+          class="inline-flex items-center justify-center rounded-full px-5 py-2.5 bg-white/10 hover:bg-white/20 transition ring-1 ring-white/30">
+          Email us →
+        </a>
+
+      </div>
+      </div>
+            <div class="mt-10 flex items-center justify-center gap-2 text-sm text-brand-sky/80">
+        <span>© 2025 MUSA President's Department</span>
+    </div>
+  </div>
+</section>
+
+
+
+
+  <!-- CONFIG + SCRIPT -->
+  <script>
+    // ==== CONFIG — Set your event info here ====
+    // IMPORTANT: The brand doc shows a sample date. Replace with your confirmed date/time.
+    const CONFIG = {
+      // Set the event start in MYT (UTC+08:00). Example: Oct 27, 2025 7:00 PM MYT
+      eventISO: '2025-10-27T19:00:00+08:00',
+      // Display texts (also reflected in the hero card)
+      dateText: 'Oct 27, 2025',
+      timeText: '5:00 PM – 12:00 AM (MYT)',
+      venueText: 'W. Factory Event Space',
+      tzLabel: 'Asia/Kuala_Lumpur (MYT)'
+    };
+
+    // Apply details
+    document.getElementById('dateText').textContent  = CONFIG.dateText;
+    document.getElementById('timeText').textContent  = CONFIG.timeText;
+    document.getElementById('venueText').textContent = CONFIG.venueText;
+    document.getElementById('countdownLabel').textContent = `Counting down in ${CONFIG.tzLabel}.`;
+
+    // Countdown logic
+    const dDays = document.getElementById('d-days');
+    const dHours= document.getElementById('d-hours');
+    const dMins = document.getElementById('d-mins');
+    const dSecs = document.getElementById('d-secs');
+    const eventTime = new Date(CONFIG.eventISO).getTime();
+
+    function tick(){
+      const now = Date.now();
+      let diff = Math.max(eventTime - now, 0);
+      const days = Math.floor(diff / (1000*60*60*24)); diff -= days * (1000*60*60*24);
+      const hrs  = Math.floor(diff / (1000*60*60));    diff -= hrs  * (1000*60*60);
+      const mins = Math.floor(diff / (1000*60));       diff -= mins * (1000*60);
+      const secs = Math.floor(diff / 1000);
+      dDays.textContent  = String(days);
+      dHours.textContent = String(hrs).padStart(2,'0');
+      dMins.textContent  = String(mins).padStart(2,'0');
+      dSecs.textContent  = String(secs).padStart(2,'0');
+
+      if(eventTime - now <= 0){
+        document.getElementById('countdownLabel').textContent = 'We\'re live — see you inside!';
+      }
+    }
+    tick();
+    setInterval(tick, 1000);
+
+    // // Simple reveal on load
+    // window.addEventListener('load', () => {
+    //   document.querySelectorAll('.reveal').forEach(el=> el.classList.add('show'))
+    // });
+  </script>
+
+  <script>
+    // Call this when it's time to reveal page elements
+    function revealNow() {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('show'));
+    }
+  </script>
+
+  <script>
+  (() => {
+    const removeSplash = (immediate=false) => {
+      const el = document.getElementById('splash');
+      if (!el) { revealNow(); return; } // if no splash, reveal immediately
+
+      if (immediate) {
+        el.remove();
+        revealNow();                    // reveal right away when skipping splash
+        return;
+      }
+      el.classList.remove('splash-in');
+      el.classList.add('splash-out');
+      setTimeout(() => {
+        el.remove();
+        revealNow();                    // reveal right after fade-out completes
+      }, 500); // match your fade-out duration
+    };
+
+    // Skip splash on back/forward cache restore
+    window.addEventListener('pageshow', (e) => {
+      if (e.persisted) removeSplash(true);
+    });
+
+    const startSplash = () => {
+      const splash = document.getElementById('splash');
+      const logo = document.getElementById('splash-logo');
+      if (!splash || !logo) { revealNow(); return; }
+
+      // Fade in splash + auto pop
+      splash.classList.add('splash-in');
+      logo.classList.add('logo-pop');
+
+      // Let the splash run, then fade out (and reveal in removeSplash)
+      setTimeout(() => removeSplash(false), 3200);
+    };
+
+    try {
+      const nav = performance.getEntriesByType('navigation')[0];
+      const isReload = nav ? nav.type === 'reload'
+                          : (performance.navigation && performance.navigation.type === 1);
+
+      if (!sessionStorage.getItem('indexSplashShown') || isReload) {
+        sessionStorage.setItem('indexSplashShown', '1'); // value doesn't matter
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', startSplash);
+        } else {
+          startSplash();
+        }
+      } else {
+        removeSplash(true); // skip splash → revealNow() runs inside
+      }
+    } catch {
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', startSplash);
+      } else {
+        startSplash();
+      }
+    }
+  })();
+  </script>
+
+</body>
+</html>

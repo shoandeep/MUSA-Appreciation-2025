@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Itinerary — 2025 MUSA Appreciation Night</title>
+  <meta name="description" content="Guest itinerary for the 2025 MUSA Appreciation Night: timings, flow, and performers." />
+  <meta name="theme-color" content="#0A2540" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    @font-face { font-family:'BethanyElingston'; src:url('/fonts/BethanyElingston.woff2') format('woff2'); font-display:swap; }
+    :root{ --brand-deep:#0A2540; --brand-ink:#0E2A4D; --brand-sky:#DDEAF7; --brand-gold:#C9A86A; --brand-white:#FFFFFF; }
+    .font-cardo{font-family:'Cardo',serif;}
+    .grain:before{ content:""; position:absolute; inset:0; pointer-events:none; opacity:.06; mix-blend-mode:overlay;
+      background-image:url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22 viewBox=%220 0 40 40%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3CfeColorMatrix type=%22saturate%22 values=%220%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E'); animation:grainMove 12s linear infinite; }
+    @keyframes grainMove{from{transform:translate(0,0)}to{transform:translate(-40px,-40px)}}
+    .glow-blue{ box-shadow:0 0 0 1px rgba(13,58,110,.25), 0 10px 50px -10px rgba(13,58,110,.35), inset 0 0 0 1px rgba(13,58,110,.15);}
+    .divider{position:relative;height:1px;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(201,168,106,.6),rgba(255,255,255,0));}
+    .divider:after{content:"";position:absolute;left:50%;top:-6px;transform:translateX(-50%);width:12px;height:12px;border-radius:999px;background:var(--brand-gold);box-shadow:0 0 0 6px rgba(201,168,106,.15);}
+    .reveal{opacity:0;transform:translateY(8px);transition:opacity .8s,transform .8s}.reveal.show{opacity:1;transform:none}
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config={theme:{extend:{colors:{brand:{deep:'#0A2540',ink:'#0E2A4D',sky:'#DDEAF7',gold:'#C9A86A',white:'#FFFFFF'}},fontFamily:{cardo:['Cardo','serif']}}}}
+  </script>
+</head>
+<body class="font-cardo bg-[radial-gradient(1200px_600px_at_70%_-10%,rgba(201,168,106,.25),transparent),linear-gradient(180deg,var(--brand-deep),#071A2F)] text-brand-white">
+  <div aria-hidden="true" class="fixed inset-0 grain"></div>
+  <div aria-hidden="true" class="pointer-events-none fixed inset-0 [mask-image:radial-gradient(50%_50%_at_50%_30%,black,transparent)]" style="background:radial-gradient(800px 400px at 30% 10%, rgba(201,168,106,.18), transparent), radial-gradient(900px 550px at 70% 0%, rgba(204,227,255,.10), transparent)"></div>
+
+  <header class="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/5">
+    <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="group inline-flex items-center">
+        <span class="sr-only">MUSA Appreciation Night 2025</span>
+        <img src="Logo1.png"
+            alt="MUSA Appreciation Night 2025"
+            class="w-[120px] -rotate-[0deg] drop-shadow hover:scale-105 transition-transform duration-200" />
+      </a>
+      <nav class="hidden sm:flex items-center gap-6 text-sm">
+        <a href="index.html#countdown" class="hover:text-brand-gold">Countdown</a>
+        <a href="index.html#details" class="hover:text-brand-gold">Details</a>
+        <a href="location.html" class="hover:text-brand-gold">Location</a>
+        <a href="itinerary.html" class="text-brand-gold">Itinerary</a>
+        <a href="lepak.html" class="hover:text-brand-gold">MUSA Lepak</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdyWNTsTu0608fFaZIrIHFfwQC0RO5nbXHgYHUsU0xRLp27Iw/viewform?usp=publish-editor" class="rounded-full px-4 py-2 bg-white/5 hover:bg-white/10 transition">RSVP</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative">
+    <div class="mx-auto max-w-7xl px-4 pt-16 pb-10 sm:pt-20 sm:pb-16 lg:pt-24 lg:pb-20">
+      <div class="grid lg:grid-cols-2 gap-10 items-start">
+        <div>
+          <p class="text-brand-gold/90 tracking-[0.4em] uppercase text-xs sm:text-sm">Plan</p>
+          <h1 class="mt-3 text-4xl sm:text-5xl lg:text-6xl leading-tight"><span class="font-semibold">Guest Itinerary</span></h1>
+          <p class="mt-5 max-w-prose text-brand-sky/90">Everything you need to move smoothly through the night, timings, flow, and who’s on stage. Note that timing may differ on the day!</p>
+        </div>
+
+        <!-- SAME HERO CARD FROM INDEX (inline) -->
+        <div class="reveal">
+          <div class="relative rounded-3xl p-1 bg-gradient-to-b from-brand-gold/50 to-transparent">
+            <div class="rounded-2xl bg-white/5 ring-1 ring-white/30 p-6 sm:p-8 backdrop-blur glow-blue">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-xs tracking-[0.28em] uppercase text-brand-sky/90">Event</p>
+                  <p class="text-xl">Appreciation Night 2025</p>
+                </div>
+                <div class="text-right">
+                  <p class="text-xs tracking-[0.28em] uppercase text-brand-sky/90">Theme</p>
+                  <p class="text-xl">Celebrate &amp; Shine ✨</p>
+                </div>
+              </div>
+              <div class="mt-6 divider" aria-hidden="true"></div>
+              <dl id="details" class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
+                <div class="rounded-xl bg-white/5 p-4 ring-1 ring-white/20">
+                  <dt class="text-brand-sky/90">Date</dt>
+                  <dd id="dateText" class="mt-1 text-base">Oct 27, 2025</dd>
+                </div>
+                <div class="rounded-xl bg-white/5 p-4 ring-1 ring-white/20">
+                  <dt class="text-brand-sky/90">Time</dt>
+                  <dd id="timeText" class="mt-1 text-base">5:00 PM – 12:00 AM (MYT)</dd>
+                </div>
+                <div class="rounded-xl bg-white/5 p-4 ring-1 ring-white/20">
+                  <dt class="text-brand-sky/90">Venue</dt>
+                  <dd id="venueText" class="mt-1 text-base">W.Factory Event Space</dd>
+                </div>
+              </dl>
+              <!-- <p class="mt-4 text-xs text-brand-sky/80">Tip: Update the date/time/venue below in the code under <code>CONFIG</code>.</p> -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ITINERARY TIMELINE -->
+  <section class="relative">
+    <div class="mx-auto max-w-7xl px-4 pb-6">
+      <div class="rounded-3xl bg-white/5 ring-1 ring-white/20 p-6 sm:p-10">
+        <p class="text-brand-gold/90 tracking-[0.4em] uppercase text-xs sm:text-sm">Itinerary</p>
+        <h2 class="mt-2 text-3xl sm:text-4xl">Appreciation Night 2025 — Guest Flow</h2>
+        <ol class="mt-8 space-y-5">
+          <li class="flex flex-col sm:flex-row sm:items-baseline gap-2"><div class="w-40 shrink-0 text-brand-sky/80">5:30 PM – 6:00 PM</div><div><span class="mr-2">✨</span><span class="font-semibold">Registration</span></div></li>
+          <li class="flex flex-col sm:flex-row sm:items-baseline gap-2"><div class="w-40 shrink-0 text-brand-sky/80">6:00 PM – 6:45 PM</div><div><span class="mr-2">🎤</span><span class="font-semibold">Warm-Up &amp; Welcoming</span></div></li>
+          <li class="flex flex-col sm:flex-row sm:items-baseline gap-2"><div class="w-40 shrink-0 text-brand-sky/80">6:45 PM – 7:45 PM</div><div><span class="mr-2">🍴</span><span class="font-semibold">Dinner &amp; Networking</span></div></li>
+          <li class="flex flex-col sm:flex-row sm:items-baseline gap-2"><div class="w-40 shrink-0 text-brand-sky/80">7:45 PM – 9:00 PM</div><div><span class="mr-2">📋</span><span class="font-semibold">Final MSC Meeting</span></div></li>
+          <li class="flex flex-col sm:flex-row sm:items-baseline gap-2"><div class="w-40 shrink-0 text-brand-sky/80">9:00 PM – 9:30 PM</div><div><span class="mr-2">🏆</span><span class="font-semibold">Awards Ceremony</span></div></li>
+          <li class="flex flex-col sm:flex-row sm:items-baseline gap-2"><div class="w-40 shrink-0 text-brand-sky/80">9:30 PM – 9:40 PM</div><div><span class="mr-2">💬</span><span class="font-semibold">President's Final Remarks</span></div></li>
+          <li class="flex flex-col sm:flex-row sm:items-baseline gap-2"><div class="w-40 shrink-0 text-brand-sky/80">9:40 PM – 11:00 PM</div><div><span class="mr-2">🎧</span><span class="font-semibold">DJ Janice Live Set</span></div></li>
+          <li class="flex flex-col sm:flex-row sm:items-baseline gap-2"><div class="w-40 shrink-0 text-brand-sky/80">11:00 PM – 12:00 AM</div><div><span class="mr-2">🎉</span><span class="font-semibold">After Party</span> — Open floor for music, mingling &amp; celebration</div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERFORMERS -->
+  <section class="relative">
+    <div class="mx-auto max-w-7xl px-4 pb-20">
+      <div class="rounded-3xl bg-white/5 ring-1 ring-white/20 overflow-hidden">
+        <div class="grid md:grid-cols-2 gap-0">
+          <div class="p-6 sm:p-10 flex flex-col justify-center">
+            <p class="text-brand-gold/90 tracking-[0.4em] uppercase text-xs sm:text-sm">Performers</p>
+            <h3 class="mt-2 text-2xl sm:text-3xl">
+              <a href="https://www.instagram.com/janiceee_13/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-gold transition">
+                🎧 DJ Janice
+              </a>
+            </h3>
+            <p class="mt-3 text-brand-sky/90">Known for her high-energy sets and signature style, DJ Janice will be lighting up the dance floor from 9:40 PM to 11:00 PM. Expect a mix of crowd favorites, unexpected drops, and pure celebration vibes. Click on her image to listen in! Or click on her name to check her out</p>
+          </div>
+          <!-- Image → Video on hover/touch -->
+          <div id="dj-janice-wrapper" class="relative">
+            <img id="dj-img" src="djjanice.jpg" alt="DJ Janice performing"
+                class="w-full h-full object-cover block" />
+
+            <!-- The video sits on top, hidden until hover/touch -->
+            <video id="dj-vid" src="DJVid.mp4"
+              class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-200 pointer-events-none"
+              playsinline preload="metadata"></video>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-10 text-center">
+        <a href="index.html" class="rounded-full px-5 py-2.5 ring-1 ring-white/30 hover:bg-white/10 transition">Back to Home</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-10 text-center text-sm text-brand-sky/80">© 2025 MUSA President's Department</footer>
+
+  <!-- CONFIG + APPLY (inline, same as index) -->
+  <script>
+    const CONFIG = {
+      eventISO: '2025-10-27T19:00:00+08:00',
+      dateText: 'Oct 27, 2025',
+      timeText: '5:00 PM – 12:00 AM (MYT)',
+      venueText: 'W. Factory Event Space',
+      tzLabel: 'Asia/Kuala_Lumpur (MYT)'
+    };
+    const elDate=document.getElementById('dateText'); if(elDate) elDate.textContent=CONFIG.dateText;
+    const elTime=document.getElementById('timeText'); if(elTime) elTime.textContent=CONFIG.timeText;
+    const elVenue=document.getElementById('venueText'); if(elVenue) elVenue.textContent=CONFIG.venueText;
+    window.addEventListener('load',()=>{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('show'))});
+  </script>
+
+  <script>
+  (() => {
+    const wrapper = document.getElementById('dj-janice-wrapper');
+    const vid = document.getElementById('dj-vid');
+    if (!wrapper || !vid) return;
+
+    const show = () => {
+      vid.currentTime = 0;
+      vid.play().catch(() => {}); // play after user action
+      vid.style.opacity = '1';
+    };
+
+    const hide = () => {
+      vid.pause();
+      vid.currentTime = 0;
+      vid.style.opacity = '0';
+    };
+
+    // Enable interaction on hover or touch
+    wrapper.addEventListener('mouseenter', show);
+    wrapper.addEventListener('mouseleave', hide);
+    wrapper.addEventListener('touchstart', show, { passive: true });
+    wrapper.addEventListener('touchend', hide);
+    wrapper.addEventListener('pointerdown', show);
+    wrapper.addEventListener('pointerup', hide);
+  })();
+</script>
+
+
+
+
+</body>
+</html>
