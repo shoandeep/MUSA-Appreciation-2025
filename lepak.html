@@ -174,26 +174,47 @@
                   <td class="text-right">-5</td>
                 </tr>
 
+                <tr class="border-t border-white/10">
+                  <td>MOV - Game 6</td>
+                  <td class="text-right">10</td>
+                  <td class="text-right">5</td>
+                  <td class="text-right">-5</td>
+                  <td class="text-right">-5</td>
+                  <td class="text-right">-5</td>
+                  <td class="text-right">5</td>
+                  <td class="text-right">15</td>
+                  <td class="text-right">-5</td>
+                  <td class="text-right">-5</td>
+                  <td class="text-right">5</td>
+                  <td class="text-right">-10</td>
+                  <td class="text-right">5</td>
+                  <td class="text-right">-5</td>
+                  <td class="text-right">-5</td>
+                  <td class="text-right">-5</td>
+                  <td class="text-right">-5</td>
+                  <td class="text-right">-5</td>
+                </tr>
+
                 <!-- TOTAL -->
                 <tr class="border-t border-white/10 font-semibold">
                   <td class="py-3">TOTAL</td>
-                  <td class="text-right">5</td>
-                  <td class="text-right">-15</td>
-                  <td class="text-right">-15</td>
-                  <td class="text-right">-15</td>
-                  <td class="text-right">-5</td>
-                  <td class="text-right">5</td>
-                  <td class="text-right">5</td>
                   <td class="text-right">15</td>
-                  <td class="text-right">-5</td>
-                  <td class="text-right">15</td>
-                  <td class="text-right">-5</td>
-                  <td class="text-right">-5</td>
-                  <td class="text-right">5</td>
-                  <td class="text-right">5</td>
-                  <td class="text-right">5</td>
+                  <td class="text-right">-10</td>
+                  <td class="text-right">-20</td>
+                  <td class="text-right">-20</td>
+                  <td class="text-right">-10</td>
+                  <td class="text-right">10</td>
+                  <td class="text-right">20</td>
+                  <td class="text-right">10</td>
+                  <td class="text-right">-10</td>
+                  <td class="text-right">20</td>
                   <td class="text-right">-15</td>
-                  <td class="text-right">15</td>
+                  <td class="text-right">0</td>
+                  <td class="text-right">0</td>
+                  <td class="text-right">0</td>
+                  <td class="text-right">0</td>
+                  <td class="text-right">-20</td>
+                  <td class="text-right">10</td>
                 </tr>
               </tbody>
             </table>
@@ -263,54 +284,65 @@
   </script>
 
   <script>
-  window.addEventListener('DOMContentLoaded', () => {
-    const table = document.querySelector('table');
-    if (!table) return;
+window.addEventListener('DOMContentLoaded', () => {
+  const table = document.querySelector('table');
+  if (!table) return;
 
-    const rows = table.querySelectorAll('tbody tr');
-    if (rows.length === 0) return;
+  const allRows = Array.from(table.querySelectorAll('tbody tr'));
+  if (allRows.length === 0) return;
 
-    const firstRowCells = rows[0].querySelectorAll('td.text-right');
-    const numCols = firstRowCells.length;
-    const totals = new Array(numCols).fill(0);
+  // Treat rows whose first cell contains "TOTAL" as summary rows (exclude from totals)
+  const dataRows = allRows.filter(row => {
+    const labelCell = row.querySelector('td:first-child');
+    return !(labelCell && /total/i.test(labelCell.textContent.trim()));
+  });
 
-    // Sum up values in each numeric column
-    rows.forEach(row => {
-      const cells = row.querySelectorAll('td.text-right');
-      cells.forEach((cell, i) => {
-        const val = parseFloat(cell.textContent.trim());
-        if (!isNaN(val)) totals[i] += val;
-      });
+  // Determine number of numeric columns from the first data row
+  const firstData = dataRows[0]?.querySelectorAll('td.text-right') || [];
+  const numCols = firstData.length;
+  if (numCols === 0) return;
+
+  // ---- Column totals (exclude TOTAL row) ----
+  const colTotals = new Array(numCols).fill(0);
+  dataRows.forEach(row => {
+    const cells = row.querySelectorAll('td.text-right');
+    cells.forEach((cell, i) => {
+      const val = parseFloat(cell.textContent.trim());
+      if (!isNaN(val)) colTotals[i] += val;
     });
+  });
 
-    // Find all columns that share the highest total
-    const maxVal = Math.max(...totals);
-    const maxIndices = totals
-      .map((val, i) => (val === maxVal ? i : -1))
-      .filter(i => i !== -1);
+  // Find winners (max) and losers (min), support ties
+  const maxVal = Math.max(...colTotals);
+  const minVal = Math.min(...colTotals);
+  const maxIdxs = colTotals.map((v,i)=>v===maxVal?i:-1).filter(i=>i!==-1);
+  const minIdxs = colTotals.map((v,i)=>v===minVal?i:-1).filter(i=>i!==-1);
 
-    // Highlight all tied columns
-    rows.forEach(row => {
+  // Helper to style a set of column indices
+  const styleCols = (indices, colorHex, weight='700') => {
+    allRows.forEach(row => {
       const cells = row.querySelectorAll('td.text-right');
-      maxIndices.forEach(i => {
+      indices.forEach(i => {
         if (cells[i]) {
-          cells[i].style.color = '#C9A86A'; // gold font
-          cells[i].style.fontWeight = '700';
+          cells[i].style.color = colorHex;
+          cells[i].style.fontWeight = weight;
         }
       });
     });
-
-    // Highlight their headers too
     const headers = table.querySelectorAll('thead th.text-right');
-    maxIndices.forEach(i => {
+    indices.forEach(i => {
       if (headers[i]) {
-        headers[i].style.color = '#C9A86A';
-        headers[i].style.fontWeight = '700';
+        headers[i].style.color = colorHex;
+        headers[i].style.fontWeight = weight;
       }
     });
-  });
-  </script>
+  };
 
+  // Apply styles: gold for highest, light red for lowest
+  styleCols(maxIdxs, '#C9A86A', '700');  // winners → gold
+  styleCols(minIdxs, '#FCA5A5', '700');  // lowest → light red
+});
+</script>
 
   
 </body>
